@@ -10,15 +10,15 @@
 # requirement
 
 
-flask
+ flask
 
-flask-mysql
+ flask-mysql
 
-pymysql
+ pymysql
 
-json
+ json
 
-traceback
+ traceback
 
-datetime
+ datetime
 
