@@ -1,7 +1,10 @@
 # vehicleRentSystem
 
 
-# Create virtual environment
+# instruction
+1. Create Virtual environment
+
+2. Install the requirements
 
 
 # requirement
