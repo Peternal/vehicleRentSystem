@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Vehicle</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+        <meta content="Themesdesign" name="author">
+
+        <!-- Bootstrap Css -->
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Icons Css -->
+        <link href="../static/css/icons.min.css" rel="stylesheet" type="text/css">
+
+        <!-- App Css-->
+        <link href="../static/css/app.min.css" rel="stylesheet" type="text/css">
+
+        <!-- DataTables -->
+        <link href="../static/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+        <link href="../static/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Responsive datatable examples -->
+        <link href="../static/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css">   
+
+
+        <!-- Datepicker css -->
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+
+
+
+
+
+
+        
+
+    </head>
+
+    <body data-topbar="colored">
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
+                            <i class="mdi mdi-backburger"></i>
+                        </button>
+
+                        
+                    </div>
+
+                    <div class="d-flex">
+
+                        <div class="dropdown d-inline-block d-lg-none ml-2">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-magnify"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" aria-labelledby="page-header-search-dropdown">
+                    
+                                <form class="p-3">
+                                    <div class="form-group m-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+            
+                        
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="d-none d-sm-inline-block ml-1">Smith</span>
+                                <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> Profile</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-credit-card-outline font-size-16 align-middle mr-1"></i> Billing</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-account-settings font-size-16 align-middle mr-1"></i> Settings</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle mr-1"></i> Lock screen</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+
+            </header>
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div data-simplebar="" class="h-100">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title">Menu</li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-table"></i></div>
+                                    <span>Rent Records</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="/rent_record">Rent Records</a></li>
+                                    <li><a href="/create_rent_record">Create Rent Record</a></li>
+                                </ul>
+                            </li>
+
+
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-vector-square"></i></div>
+                                    <span>Vehicle</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="">Vehicle</a></li>
+                                    <li><a href="/vehicle_class">Vehicle Class</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-chart-pie"></i></div>
+                                    <span>Coupon</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="/indi_coupon">Indi Customer Coupon</a></li>
+                                    <li><a href="/corp_coupon">Corp Customer Coupon</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+
+                    <!-- Page-Title -->
+                    <div class="page-title-box">
+                        <div class="container-fluid">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h4 class="page-title mb-1">Vehicle</h4> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="float-right d-none d-md-block">
+                                        <div class="dropdown">
+                                            <button class="btn btn-light btn-rounded dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-settings-outline mr-1"></i> Settings
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Separated link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- end page title end breadcrumb -->
+
+                    <div class="page-content-wrapper">
+                        <div class="container-fluid">
+                            
+            
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <table id="vehicleTable" class="table table-striped table-bordered dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                <thead>
+                                                <tr>
+                                                    <th>VIN</th>
+                                                    <th>Manufacturer</th>
+                                                    <th>Model</th>
+                                                    <th>Year</th>
+                                                    <th>License Plate Number</th>
+                                                    <th>Status</th>
+                                                    <th>Class Name</th>
+                                                    <th>Office Name</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                </thead>
+            
+            
+                                                
+                                            </table>
+
+                                            <!-- new vehicle Modal -->
+                                            <div class="modal fade" id="addvehModal" tabindex="-1" role="dialog" aria-labelledby="addvehModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="addvehModalLabel">Add New Vehicle</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="add_modal_form">
+                                                        <div class="form-group row align-items-end">
+                                                            <label for="new_vin" class="col-md-2 col-form-label">VIN</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <input class="form-control" type="text" id="new_vin" maxlength="17" onKeyUp="value=value.replace(/[\W]/g,'').toUpperCase()" onKeyPress="value=value.replace(/[\W]/g,'').toUpperCase()">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row align-items-end">
+                                                            <label for="new_make" class="col-md-2 col-form-label">Manufacturer</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <input class="form-control" type="text" id="new_make" maxlength="20" onKeyUp="value=value.replace(/[^0-9A-Za-z ]/g,'')" onKeyPress="value=value.replace(/[^0-9A-Za-z ]/g,'')" onBlur="value=value.replace(/(^\s*)|(\s*$)/g, '')" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row align-items-end">
+                                                            <label for="new_model" class="col-md-2 col-form-label">Model</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <input class="form-control" type="text" id="new_model" maxlength="20" onKeyUp="value=value.replace(/[^0-9A-Za-z +\-]/g,'')" onKeyPress="value=value.replace(/[^0-9A-Za-z +\-]/g,'')" onBlur="value=value.replace(/(^\s*)|(\s*$)/g, '')">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row align-items-end">
+                                                            <label for="new_year" class="col-md-2 col-form-label">Year</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <div class="input-group date" id="veh_new_year" data-target-input="nearest">
+                                                                        <input id='new_year' type="text" value="" class="form-control datetimepicker-input" data-target="#veh_new_year" onKeyUp="value=value.replace(/[\D]/g,'')" onKeyPress="value=value.replace(/[\D]/g,'')" maxlength="4" readonly>
+                                                                        <div class="input-group-append" data-target="#veh_new_year" data-toggle="datetimepicker">
+                                                                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                                        </div>
+                                                                    </div> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row align-items-end">
+                                                            <label for="new_license_plate_number" class="col-md-2 col-form-label">License Plate</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <input class="form-control" type="text" id="new_license_plate_number" maxlength="10" onKeyUp="value=value.replace(/[\W]/g,'').toUpperCase()" onKeyPress="value=value.replace(/[\W]/g,'').toUpperCase()">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row align-items-end">
+                                                            <label class="col-md-2 col-form-label">Class</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <select name="new_class_name" class="form-control" id="new_class_name">
+                                                                        {% for j in classlist %}
+                                                                            <option value="{{j['class_name']}}">{{j['class_name']}}</option>
+                                                                        {% endfor %}
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row align-items-end">
+                                                            <label class="col-md-2 col-form-label">Office</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <select name="new_office" class="form-control" id="new_office_id">
+                                                                        {% for j in officelist %}
+                                                                            <option value="{{j['office_id']}}">{{j['office_name']}}</option>
+                                                                        {% endfor %}
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </form>
+                                                        
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary" onclick="submitNewVeh()">Submit</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                                            <!-- edit vehicle Modal -->
+                                            <div class="modal fade" id="editvehModal" tabindex="-1" role="dialog" aria-labelledby="editvehModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="editvehModalLabel">Edit Vehicle</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="edit_modal_form">
+                                                        <div class="form-group row align-items-end">
+                                                            <label for="edit_vin" class="col-md-2 col-form-label">VIN</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <input class="form-control" type="text" id="edit_vin" readonly style="color: #3051d3">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row align-items-end">
+                                                            <label for="edit_make" class="col-md-2 col-form-label">Manufacturer</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <input class="form-control" type="text" id="edit_make" maxlength="20" onKeyUp="value=value.replace(/[^0-9A-Za-z ]/g,'')" onKeyPress="value=value.replace(/[^0-9A-Za-z ]/g,'')" onBlur="value=value.replace(/(^\s*)|(\s*$)/g, '')" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row align-items-end">
+                                                            <label for="edit_model" class="col-md-2 col-form-label">Model</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <input class="form-control" type="text" id="edit_model" maxlength="20" onKeyUp="value=value.replace(/[^0-9A-Za-z +\-]/g,'')" onKeyPress="value=value.replace(/[^0-9A-Za-z +\-]/g,'')" onBlur="value=value.replace(/(^\s*)|(\s*$)/g, '')">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row align-items-end">
+                                                            <label for="edit_year" class="col-md-2 col-form-label">Year</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <div class="input-group date" id="veh_edit_year" data-target-input="nearest">
+                                                                        <input id='edit_year' type="text" value="" class="form-control datetimepicker-input" data-target="#veh_edit_year" onKeyUp="value=value.replace(/[\D]/g,'')" onKeyPress="value=value.replace(/[\D]/g,'')" maxlength="4" readonly>
+                                                                        <div class="input-group-append" data-target="#veh_edit_year" data-toggle="datetimepicker">
+                                                                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                                        </div>
+                                                                    </div> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row align-items-end">
+                                                            <label for="edit_license_plate_number" class="col-md-2 col-form-label">License Plate</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <input class="form-control" type="text" id="edit_license_plate_number" maxlength="10" onKeyUp="value=value.replace(/[\W]/g,'').toUpperCase()" onKeyPress="value=value.replace(/[\W]/g,'').toUpperCase()">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row align-items-end">
+                                                            <label class="col-md-2 col-form-label">Class</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <select name="edit_class_name" class="form-control" id="edit_class_name">
+                                                                        {% for j in classlist %}
+                                                                            <option value="{{j['class_name']}}">{{j['class_name']}}</option>
+                                                                        {% endfor %}
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row align-items-end">
+                                                            <label class="col-md-2 col-form-label">Office</label>
+                                                            <div class="col-md-10">
+                                                                <div class="mt-3 mr-sm-2">
+                                                                    <select name="edit_office" class="form-control" id="edit_office_id">
+                                                                        {% for j in officelist %}
+                                                                            <option value="{{j['office_id']}}">{{j['office_name']}}</option>
+                                                                        {% endfor %}
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </form>
+                                                        
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-success" onclick="reset_edit()">Reset</button>
+                                                    <button type="button" class="btn btn-primary" onclick="submitEditVeh()">Submit</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div> <!-- end row -->
+
+                        </div>
+                        <!-- end container-fluid -->
+                    </div> 
+                    <!-- end page-content-wrapper -->
+                </div>
+                <!-- End Page-content -->
+
+                
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+
+        <!-- JAVASCRIPT -->
+        <script src="../static/js/jquery.min.js"></script>
+        <script src="../static/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/js/metisMenu.min.js"></script>
+        <script src="../static/js/simplebar.min.js"></script>
+        <script src="../static/js/waves.min.js"></script>
+
+        <script src="../static/js/bundle.js"></script>
+
+
+        <!-- Tour init js-->
+
+        <script src="../static/js/app.js"></script>
+
+        <script src="../static/js/moment.min.js"></script>
+
+        <script src="../static/js/moment.js"></script>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        
+
+        <!-- Datatable init js -->
+        <script src="../static/js/datatables.init.js"></script>
+
+        
+
+         <!-- Required datatable js -->
+         <script src="../static/js/jquery.dataTables.min.js"></script>
+         <script src="../static/js/dataTables.bootstrap4.min.js"></script>
+
+
+         <!-- Responsive examples -->
+        <script src="../static/js/dataTables.responsive.min.js"></script>
+        <script src="../static/js/responsive.bootstrap4.min.js"></script>
+
+         <!-- Buttons examples -->
+         <script src="../static/js/dataTables.buttons.min.js"></script>
+         <script src="../static/js/buttons.bootstrap4.min.js"></script>
+         <script src="../static/js/jszip.min.js"></script>
+         <!-- <script src="https://themesdesign.in/xoric/layouts/blue/vertical/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+         <script src="https://themesdesign.in/xoric/layouts/blue/vertical/assets/libs/pdfmake/build/vfs_fonts.js"></script> -->
+         <script src="../static/js/buttons.html5.min.js"></script>
+         <script src="../static/js/buttons.print.min.js"></script>
+         <script src="../static/js/buttons.colVis.min.js"></script>
+
+
+        
+
+        <script> 
+
+        // old data of selected vehicle
+        var old_vin;
+        var old_make;
+        var old_model;
+        var old_year;
+        var old_license_plate_number;
+        var old_class_name;
+        var old_office_id;
+        var globalRow;
+
+
+
+
+        // datatable button config
+        var buttonConfig = [];
+        buttonConfig.push({extend:'pageLength',className: 'btn btn-secondary'});
+        buttonConfig.push({extend:'colvis', className: 'btn btn-secondary'});
+        buttonConfig.push({ text: 'Add New Vehicle', 
+                            className: 'btn btn-primary', 
+                            action: function () {
+                                $('#addvehModal').modal({
+                                    show: true,
+                                    focus: true,
+                                    backdrop: 'static'
+                                })
+                            }
+                        });	
+
+
+        // vehicle datatable
+        $(document).ready(function() { 
+                var vehicleDataTable = $('#vehicleTable').DataTable({
+                            dom: 'Bfrtip',
+                            // 'processing': true,
+                            'serverSide': true,
+                            'serverMethod': 'post',
+                            'ajax': {
+                                'url':'/vehicle_ajax'
+                            },
+                            'lengthMenu': [[10, 25, 50, 100], [10, 25, 50, 100]],
+                            buttons: {
+                                buttons: buttonConfig,
+                                dom: {
+                                    button: {
+                                    className: ''
+                                }
+                                }
+                            },
+                            
+                            searching: true,
+                            sort: true,
+                            "serverSide": true,
+                            'columns': [
+                                { name: 'vin', data: 'vin', "orderable": true },
+                                { name: 'make', data: 'make', "orderable": true },
+                                { name: 'model', data: 'model', "orderable": true },
+                                { name: 'year', data: 'year', "orderable": true },
+                                { name: 'license_plate_number', data: 'license_plate_number', "orderable": true },
+                                { name: 'status', data: 'status', "orderable": true },
+                                { name: 'class_name', data: 'class_name', "orderable": true },
+                                { name: 'office_name', data: 'office_name', "orderable": true },
+                                {
+                                    "orderable": false, 
+                                    defaultContent: '<div class="btn-group" role="group">'+
+                                                        '<button id="change" type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Rent/Return">'+
+                                                            '<i class="mdi mdi-bed-queen"></i>'+
+                                                        '</button>'+
+                                                        '<button id="edit" type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">'+
+                                                            '<i class="mdi mdi-pencil"></i>'+
+                                                        '</button>'+
+                                                        '<button id="delete" type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">'+
+                                                            '<i class="mdi mdi-trash-can"></i>'+
+                                                        '</button>'+
+                                                    '</div>'
+                                }
+                            ]
+                        });
+                        //click change
+                        $('#vehicleTable tbody').on( 'click', "#change", function () {
+                            var row = $(this).parents('tr');
+                            var cell = vehicleDataTable.cell(row, 5);
+                            var data = vehicleDataTable.row( row ).data();
+                            if (data.status.indexOf("Unavailable") == -1){
+                                if (confirm("Do you want to rent the car?")){
+                                    // ajax send data to backend
+                                    $.ajax({
+                                        url:"/change_status_request",
+                                        type: "POST",
+                                        contentType: "application/json;charset=utf-8",
+                                        data: JSON.stringify({"vin":data.vin, "status":1}),
+                                        success:function(data){
+                                            if (data.status == "success"){
+                                                alert(data.content);
+                                                cell.data('<div class="badge badge-soft-danger">Unavailable</div>');
+                                                // window.location.reload();
+                                            } else {
+                                                alert(data.content);
+                                            }
+                                            
+                                        },
+                                        error:function(){
+                                            alert("Error...")
+                                        }
+                                    });
+                                }
+                            } else {
+                                if (confirm("Do you want to return the car?")){
+                                    $.ajax({
+                                        url:"/change_status_request",
+                                        type: "POST",
+                                        contentType: "application/json;charset=utf-8",
+                                        data: JSON.stringify({"vin":data.vin, "status":0}),
+                                        success:function(data){
+                                            if (data.status == "success"){
+                                                alert(data.content);
+                                                cell.data('<div class="badge badge-soft-success">Available</div>');
+                                                // window.location.reload();
+                                            } else {
+                                                alert(data.content);
+                                            }
+                                            
+                                        },
+                                        error:function(){
+                                            alert("Error...")
+                                        }
+                                    });  
+                                }
+                            }
+                        } );
+
+                        //click edit
+                        $('#vehicleTable tbody').on( 'click', "#edit", function () {
+                            var row = $(this).parents('tr');
+
+                            globalRow = row;
+
+                            var data = vehicleDataTable.row( row ).data();
+
+                            if (data.status.indexOf("Unavailable")!=-1){
+                                alert("This vehicle is unavailable!");
+                                return;
+                            }
+
+                            old_vin = data.vin;
+                            old_make = data.make;
+                            old_model = data.model;
+                            old_year = data.year;
+                            old_license_plate_number = data.license_plate_number;
+                            old_class_name = data.class_name;
+
+
+                            var options = Array.from(document.getElementById("edit_office_id").options);
+                            var optionToSelect = options.find(item => item.text ===data.office_name);
+                            
+                            old_office_id = optionToSelect.value;
+
+
+
+                            document.getElementById("edit_vin").value = old_vin;
+                            document.getElementById("edit_make").value = old_make;
+                            document.getElementById("edit_model").value = old_model;
+                            document.getElementById("edit_year").value = old_year;
+                            document.getElementById("edit_class_name").value = old_class_name;
+                            document.getElementById("edit_license_plate_number").value = old_license_plate_number;
+                            document.getElementById("edit_office_id").value = old_office_id;
+
+                            
+
+
+
+                            $('#editvehModal').modal({
+                                    show: true,
+                                    focus: true,
+                                    backdrop: 'static'
+                                })
+                        } );
+                        
+                        //click delete
+                        $('#vehicleTable tbody').on( 'click', "#delete", function () {
+                            var row = $(this).parents('tr');
+
+                            var data = vehicleDataTable.row( row ).data();
+
+                            if (data.status.indexOf("Unavailable")!=-1){
+                                alert("This vehicle is unavailable!");
+                                return;
+                            }
+
+                            if (confirm("Do you want to delete this vehicle?")==false){
+                                return false;
+                            }
+
+                            // ajax send data to backend
+                            $.ajax({
+                                url:"/delete_vehicle_request",
+                                type: "POST",
+                                contentType: "application/json;charset=utf-8",
+                                data: JSON.stringify({"vin":data.vin}),
+                                success:function(data){
+                                    if (data.status == "success"){
+                                        alert(data.content);
+                                        // delete the row in front end datatable
+                                        vehicleDataTable
+                                            .row(row)
+                                            .remove()
+                                            .draw();
+                                        //window.location.reload();
+                                    } else {
+                                        alert(data.content);
+                                    }
+                                    
+                                },
+                                error:function(){
+                                    alert("Delete error...")
+                                }
+                            });
+
+
+
+                            
+                            
+                        } );
+
+                
+                    
+            });
+
+
+            // reset edit modal
+            function reset_edit(){
+                document.getElementById("edit_vin").value = old_vin;
+                document.getElementById("edit_make").value = old_make;
+                document.getElementById("edit_model").value = old_model;
+                document.getElementById("edit_year").value = old_year;
+                document.getElementById("edit_class_name").value = old_class_name;
+                document.getElementById("edit_license_plate_number").value = old_license_plate_number;
+                document.getElementById("edit_office_id").value = old_office_id;
+            }
+
+
+
+            
+
+
+        </script>
+
+
+        <script>
+            // submit edit vehicle
+            function submitEditVeh(){
+
+                //check manufacturer
+                var make = document.getElementById("edit_make").value;
+                if (make==""){
+                    alert("Please enter manufacturer!");
+                    return false;
+                }
+
+                //check model
+                var model = document.getElementById("edit_model").value;
+                if (model==""){
+                    alert("Please enter model!");
+                    return false;
+                }
+
+                //check year
+                var year = document.getElementById("edit_year").value;
+                if (year==""){
+                    alert("Please choose year!");
+                    return false;
+                }
+
+                //check license_plate_number
+                var license_plate_number = document.getElementById("edit_license_plate_number").value;
+                if (license_plate_number==""){
+                    alert("Please enter license plate number!");
+                    return false;
+                }
+
+
+                var className = document.getElementById("edit_class_name").value;
+                var officeId = document.getElementById("edit_office_id").value;
+
+
+                var officeName = $( "#edit_office_id option:selected" ).text();
+
+
+                if (make==old_make && model==old_model && year==old_year &&
+                    license_plate_number==old_license_plate_number && className==old_class_name && officeId==old_office_id){
+                        alert("Nothing is changed!");
+                        return false;
+                }
+
+
+                if (confirm("Do you want to submit the change?")==false){
+                    return false;
+                }
+
+
+
+ 
+                // ajax send data to backend
+                $.ajax({
+                    url:"/edit_vehicle_request",
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({"vin":old_vin,"make":make, "model":model, 
+                                            "year":year, "license_plate_number": license_plate_number, "class_name":className, 
+                                            "office_id":officeId}),
+                    success:function(data){
+                        if (data.status == "success"){
+                            alert(data.content);
+                            $('#editvehModal').modal('hide');
+                            // update front end datatable
+                            $('#vehicleTable').DataTable().cell(globalRow, 1).data(make);
+                            $('#vehicleTable').DataTable().cell(globalRow, 2).data(model);
+                            $('#vehicleTable').DataTable().cell(globalRow, 3).data(year);
+                            $('#vehicleTable').DataTable().cell(globalRow, 4).data(license_plate_number);
+                            $('#vehicleTable').DataTable().cell(globalRow, 6).data(className);
+                            $('#vehicleTable').DataTable().cell(globalRow, 7).data(officeName);
+
+                            //window.location.reload();
+                        } else {
+                            alert(data.content);
+                        }
+                        
+                    },
+                    error:function(){
+                        alert("Submit error...")
+                    }
+                });
+
+            }
+
+
+        </script>
+
+        <script>
+            //date picker for new vehicle
+            $(function() {
+                $('#veh_new_year').datetimepicker({
+                    ignoreReadonly: true,
+                    defaultDate: '',
+                    minDate: '1970',
+                    startDate: '1970',
+                    maxDate: moment(),
+                    endDate: moment(),
+                    format: 'YYYY',
+
+                });
+                
+            });
+
+            //date picker for edit vehicle
+            $(function() {
+                $('#veh_edit_year').datetimepicker({
+                    ignoreReadonly: true,
+                    defaultDate: '',
+                    minDate: '1970',
+                    startDate: '1970',
+                    maxDate: moment(),
+                    endDate: moment(),
+                    format: 'YYYY',
+
+                });
+                
+            });
+        </script>
+
+        <script>
+            // reset new vehicle modal
+            $('#addvehModal').on('hidden.bs.modal', function () {
+                document.getElementById("add_modal_form").reset()
+            })
+        </script>
+
+
+        <script>
+            // submit new vehicle
+            function submitNewVeh(){
+                //check vin
+                var vin = document.getElementById("new_vin").value;
+                if (vin==""){
+                    alert("Please enter VIN!");
+                    return false;
+                } else if (vin.length!=17){
+                    alert("VIN should be 17 digits!");
+                    return false;
+                } 
+
+                //check manufacturer
+                var make = document.getElementById("new_make").value;
+                if (make==""){
+                    alert("Please enter manufacturer!");
+                    return false;
+                }
+
+                //check model
+                var model = document.getElementById("new_model").value;
+                if (model==""){
+                    alert("Please enter model!");
+                    return false;
+                }
+
+                //check year
+                var year = document.getElementById("new_year").value;
+                if (year==""){
+                    alert("Please choose year!");
+                    return false;
+                }
+
+                //check license_plate_number
+                var license_plate_number = document.getElementById("new_license_plate_number").value;
+                if (license_plate_number==""){
+                    alert("Please enter license plate number!");
+                    return false;
+                }
+
+
+                var className = document.getElementById("new_class_name").value;
+                var officeId = document.getElementById("new_office_id").value;
+
+
+                if (confirm("Do you want to submit this new vehicle?")==false){
+                    return false;
+                }
+
+ 
+                // ajax send data to backend
+                $.ajax({
+                    url:"/add_vehicle_request",
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({"vin":vin, "make":make, "model":model, 
+                                            "year":year, "license_plate_number": license_plate_number, "class_name":className, 
+                                            "office_id":officeId}),
+                    success:function(data){
+                        if (data.status == "success"){
+                            alert(data.content);
+                            $('#addvehModal').modal('hide');
+                            window.location.reload();
+                        } else {
+                            alert(data.content);
+                        }
+                        
+                    },
+                    error:function(){
+                        alert("Submit error...")
+                    }
+                });
+
+            }
+        </script>
+
+
+
+    </body>
+</html>
