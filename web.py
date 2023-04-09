@@ -1309,6 +1309,287 @@ def delete_corp_coupon_request():
         conn.close()
 
 
+GlobalEmail = "solujicifrou-1777@yopmail.com"
+
+
+
+@app.route("/cus_invoice", methods=['GET', 'POST'])
+def cus_invoices():
+    return render_template("cus_invoice.html")
+
+
+
+
+
+@app.route("/invoice_ajax", methods=["POST", "GET"])
+def invoice_ajax():
+
+
+    try:
+        conn = mysql.connect()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        if request.method == 'POST':
+            draw = request.form['draw']
+            row = int(request.form['start'])
+            rowperpage = int(request.form['length'])
+            searchValue = request.form["search[value]"]
+            sortColumn = request.form["columns[" + request.form["order[0][column]"] + "][name]"]
+            sortColumnDirection = request.form["order[0][dir]"]
+            print(draw)
+            print(row)
+            print(rowperpage)
+            print(searchValue)
+            print("sortcol: "+sortColumn)
+            print("sortdir: " + sortColumnDirection)
+
+            showFlag = request.form['showFlag']
+            print(showFlag)
+
+            if showFlag == 'unpaid' :
+                payCheck = " WHERE paid='no' "
+                payCheckFilter = " AND paid='no' "
+            elif showFlag == 'paid' :
+                payCheck = " WHERE paid='yes' "
+                payCheckFilter = " AND paid='yes' "
+            else :
+                payCheck = ''
+                payCheckFilter = ''
+
+            ## Total number of records without filtering
+            cursor.execute(
+                "SELECT count(*) AS allrecord FROM "
+                +"(SELECT ltd_invoice.* , IF(ltd_invoice.invoice_id IN (SELECT invoice_id FROM ltd_payment), 'yes','no') paid "
+                +"FROM ltd_invoice, "
+                +"(SELECT record_id FROM ltd_rent_record WHERE email='"+GlobalEmail+"') a "
+                +"WHERE ltd_invoice.record_id = a.record_id ) t "+payCheck+" ;"
+            )
+            rsallrecord = cursor.fetchone()
+            totalRecords = rsallrecord['allrecord']
+            print(totalRecords)
+
+            ## Total number of records with filtering
+            likeString = "%" + searchValue + "%"
+            cursor.execute(
+                "SELECT count(*) AS allrecord FROM "
+                +"(SELECT ltd_invoice.* , IF(ltd_invoice.invoice_id IN (SELECT invoice_id FROM ltd_payment), 'yes','no') paid "
+                +"FROM ltd_invoice, "
+                +"(SELECT record_id FROM ltd_rent_record WHERE email='"+GlobalEmail+"') a "
+                +"WHERE ltd_invoice.record_id = a.record_id ) t "
+                +"WHERE invoice_id LIKE %s OR date LIKE %s OR amount LIKE %s OR record_id LIKE %s OR paid LIKE %s "+payCheckFilter+" ;",
+                (likeString, likeString, likeString, likeString, likeString))
+            rsallrecord = cursor.fetchone()
+            totalRecordwithFilter = rsallrecord['allrecord']
+            print(totalRecordwithFilter)
+
+            ## Fetch records
+            if searchValue == '':
+                cursor.execute(
+                    "SELECT * FROM "
+                    +"(SELECT ltd_invoice.* , IF(ltd_invoice.invoice_id IN (SELECT invoice_id FROM ltd_payment), 'yes','no') paid "
+                    +"FROM ltd_invoice, "
+                    +"(SELECT record_id FROM ltd_rent_record WHERE email='"+GlobalEmail+"') a "
+                    +"WHERE ltd_invoice.record_id = a.record_id ) t "+payCheck
+                    +"ORDER BY "+sortColumn+" "+sortColumnDirection+" limit %s, %s;", (row, rowperpage))
+                recordlist = cursor.fetchall()
+            else:
+                cursor.execute(
+                    "SELECT * FROM "
+                    +"(SELECT ltd_invoice.* , IF(ltd_invoice.invoice_id IN (SELECT invoice_id FROM ltd_payment), 'yes','no') paid "
+                    +"FROM ltd_invoice, "
+                    +"(SELECT record_id FROM ltd_rent_record WHERE email='"+GlobalEmail+"') a "
+                    +"WHERE ltd_invoice.record_id = a.record_id ) t "
+                    +"WHERE invoice_id LIKE %s OR date LIKE %s OR amount LIKE %s OR record_id LIKE %s OR paid LIKE %s "+payCheckFilter
+                    +"ORDER BY "+sortColumn+" "+sortColumnDirection+" limit %s, %s;",
+                    (likeString, likeString, likeString, likeString, likeString, row, rowperpage))
+                recordlist = cursor.fetchall()
+
+            data = []
+            for row in recordlist:
+                data.append({
+                    'invoice_id': row['invoice_id'],
+                    'date': row['date'].strftime("%Y/%m/%d"),
+                    'amount': row['amount'],
+                    'record_id': row['record_id'],
+                    'paid': row['paid']
+                })
+
+            response = {
+                'draw': draw,
+                'iTotalRecords': totalRecords,
+                'iTotalDisplayRecords': totalRecordwithFilter,
+                'aaData': data,
+            }
+            return jsonify(response)
+
+    except Exception as e:
+        print(e)
+    finally:
+        cursor.close()
+        conn.close()
+
+
+@app.route('/invoice_pay_request',methods=['GET', 'POST'])
+def invoice_pay_request():
+    data = request.get_data()
+    json_data = json.loads(data)
+    invoice_id = str(json_data.get("invoice_id"))
+    payment_type = json_data.get("payment_type")
+    card_no = json_data.get("card_no")
+
+    payment_status = "approved"
+
+    payment_date = datetime.datetime.now().strftime('%Y-%m-%d')
+
+    conn = mysql.connect()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+
+    info = dict()
+    info['status'] = "success"
+    info['content'] = "Successfully paid"
+
+    try:
+        cursor.execute("SELECT count(*) AS allrecord FROM ltd_payment WHERE invoice_id=" + invoice_id + ";")
+        idCount = cursor.fetchone()
+        idCount = idCount['allrecord']
+        print(idCount)
+        if (idCount != 0):
+            info['status'] = "duplicate"
+            info['content'] = "Duplicated invoice ID. Invoice has already been paid."
+            return jsonify(info)
+
+        cursor.execute("SELECT count(*) AS allrecord FROM ltd_invoice WHERE invoice_id=" + invoice_id + ";")
+        invCount = cursor.fetchone()
+        invCount = invCount['allrecord']
+        print(invCount)
+        if (invCount == 0):
+            info['status'] = "not found"
+            info['content'] = "Invoice ID not found. No such invoice."
+            return jsonify(info)
+
+        cursor.execute("INSERT INTO ltd_payment ( payment_date, payment_status, payment_type, card_no, invoice_id) VALUES "+
+                       "('"+payment_date+"', '"+payment_status+"', '"+payment_type+"', '"+card_no+"', "+invoice_id+");")
+        conn.commit()
+
+        return jsonify(info)
+
+
+    except Exception as e:
+        traceback.print_exc()
+        print(e)
+        conn.rollback()
+        info['status'] = "error"
+        info['content'] = "Insert error."
+        return jsonify(info)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+@app.route("/cus_payment", methods=['GET', 'POST'])
+def cus_payment():
+    return render_template("cus_payment.html")
+
+
+@app.route("/payment_ajax", methods=["POST", "GET"])
+def payment_ajax():
+    try:
+        conn = mysql.connect()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
+        if request.method == 'POST':
+            draw = request.form['draw']
+            row = int(request.form['start'])
+            rowperpage = int(request.form['length'])
+            searchValue = request.form["search[value]"]
+            sortColumn = request.form["columns[" + request.form["order[0][column]"] + "][name]"]
+            sortColumnDirection = request.form["order[0][dir]"]
+            print(draw)
+            print(row)
+            print(rowperpage)
+            print(searchValue)
+            print("sortcol: "+sortColumn)
+            print("sortdir: " + sortColumnDirection)
+
+            ## Total number of records without filtering
+            cursor.execute(
+                "SELECT count(*) AS allrecord FROM "
+                +"(SELECT ltd_payment.* FROM ltd_payment, "
+                +"(SELECT ltd_invoice.invoice_id "
+                +"FROM ltd_invoice, "
+                +"(SELECT record_id FROM ltd_rent_record WHERE email='solujicifrou-1777@yopmail.com') a "
+                +"WHERE ltd_invoice.record_id = a.record_id) b "
+                +"WHERE ltd_payment.invoice_id = b.invoice_id) t;")
+            rsallrecord = cursor.fetchone()
+            totalRecords = rsallrecord['allrecord']
+            print(totalRecords)
+
+            ## Total number of records with filtering
+            likeString = "%" + searchValue + "%"
+            cursor.execute(
+                "SELECT count(*) AS allrecord FROM "
+                +"(SELECT ltd_payment.* FROM ltd_payment, "
+                +"(SELECT ltd_invoice.invoice_id "
+                +"FROM ltd_invoice, "
+                +"(SELECT record_id FROM ltd_rent_record WHERE email='solujicifrou-1777@yopmail.com') a "
+                +"WHERE ltd_invoice.record_id = a.record_id) b "
+                +"WHERE ltd_payment.invoice_id = b.invoice_id) t "
+                +"WHERE payment_id LIKE %s OR payment_date LIKE %s OR payment_status LIKE %s OR payment_type LIKE %s OR card_no LIKE %s OR invoice_id LIKE %s;",
+                (likeString, likeString, likeString, likeString, likeString, likeString))
+            rsallrecord = cursor.fetchone()
+            totalRecordwithFilter = rsallrecord['allrecord']
+            print(totalRecordwithFilter)
+
+            ## Fetch records
+            if searchValue == '':
+                cursor.execute(
+                    "SELECT * FROM "
+                    +"(SELECT ltd_payment.* FROM ltd_payment, "
+                    +"(SELECT ltd_invoice.invoice_id "
+                    +"FROM ltd_invoice, "
+                    +"(SELECT record_id FROM ltd_rent_record WHERE email='solujicifrou-1777@yopmail.com') a "
+                    +"WHERE ltd_invoice.record_id = a.record_id) b "
+                    +"WHERE ltd_payment.invoice_id = b.invoice_id) t "
+                    +"ORDER BY "+sortColumn+" "+sortColumnDirection+" limit %s, %s;", (row, rowperpage))
+                recordlist = cursor.fetchall()
+            else:
+                cursor.execute(
+                    "SELECT * FROM "
+                    +"(SELECT ltd_payment.* FROM ltd_payment, "
+                    +"(SELECT ltd_invoice.invoice_id "
+                    +"FROM ltd_invoice, "
+                    +"(SELECT record_id FROM ltd_rent_record WHERE email='solujicifrou-1777@yopmail.com') a "
+                    +"WHERE ltd_invoice.record_id = a.record_id) b "
+                    +"WHERE ltd_payment.invoice_id = b.invoice_id) t "
+                    +"WHERE payment_id LIKE %s OR payment_date LIKE %s OR payment_status LIKE %s OR payment_type LIKE %s OR card_no LIKE %s OR invoice_id LIKE %s "
+                    +"ORDER BY "+sortColumn+" "+sortColumnDirection+" limit %s, %s;",
+                    (likeString, likeString, likeString, likeString, likeString, likeString, row, rowperpage))
+                recordlist = cursor.fetchall()
+
+            data = []
+            for row in recordlist:
+                data.append({
+                    'payment_id': row['payment_id'],
+                    'payment_date': row['payment_date'].strftime("%Y/%m/%d"),
+                    'payment_status': row['payment_status'],
+                    'payment_type': row['payment_type'],
+                    'card_no': row['card_no'],
+                    'invoice_id': row['invoice_id']
+                })
+
+            response = {
+                'draw': draw,
+                'iTotalRecords': totalRecords,
+                'iTotalDisplayRecords': totalRecordwithFilter,
+                'aaData': data,
+            }
+            return jsonify(response)
+
+    except Exception as e:
+        print(e)
+    finally:
+        cursor.close()
+        conn.close()
+
+
 if __name__ == "__main__":
     app.run()
 

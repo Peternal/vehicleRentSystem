@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Payment</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+        <meta content="Themesdesign" name="author">
+
+        
+
+        <!-- Responsive datatable examples -->
+        <link href="../static/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css">   
+
+        <!-- Bootstrap Css -->
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Icons Css -->
+        <link href="../static/css/icons.min.css" rel="stylesheet" type="text/css">
+
+        <!-- App Css-->
+        <link href="../static/css/app.min.css" rel="stylesheet" type="text/css">
+
+        <!-- DataTables -->
+        <link href="../static/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+        <link href="../static/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css">
+
+        
+
+        
+
+
+    </head>
+
+
+    <body data-topbar="colored">
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
+                            <i class="mdi mdi-backburger"></i>
+                        </button>
+
+                        
+                    </div>
+
+                    <div class="d-flex">
+
+                        <div class="dropdown d-inline-block d-lg-none ml-2">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-magnify"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" aria-labelledby="page-header-search-dropdown">
+                    
+                                <form class="p-3">
+                                    <div class="form-group m-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+            
+
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="d-none d-sm-inline-block ml-1">Smith</span>
+                                <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> Profile</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-credit-card-outline font-size-16 align-middle mr-1"></i> Billing</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-account-settings font-size-16 align-middle mr-1"></i> Settings</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle mr-1"></i> Lock screen</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+
+            </header>
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div data-simplebar="" class="h-100">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title">Menu</li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-table"></i></div>
+                                    <span>Rent Records</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="">Rent Records</a></li>
+                                    <li><a href="/create_rent_record">Create Rent Record</a></li>
+                                </ul>
+                            </li>
+
+
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-vector-square"></i></div>
+                                    <span>Vehicle</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="/vehicle">Vehicle</a></li>
+                                    <li><a href="/vehicle_class">Vehicle Class</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-chart-pie"></i></div>
+                                    <span>Coupon</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="/indi_coupon">Indi Customer Coupon</a></li>
+                                    <li><a href="/corp_coupon">Corp Customer Coupon</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+
+                    <!-- Page-Title -->
+                    <div class="page-title-box">
+                        <div class="container-fluid">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h4 class="page-title mb-1">Payment</h4> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="float-right d-none d-md-block">
+                                        <div class="dropdown">
+                                            <button class="btn btn-light btn-rounded dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-settings-outline mr-1"></i> Settings
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Separated link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- end page title end breadcrumb -->
+
+                    <div class="page-content-wrapper">
+                        <div class="container-fluid">
+                            
+            
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <table id="paymentTable" class="table table-striped table-bordered dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                <thead>
+                                                <tr>
+                                                    <th>Payment ID</th>
+                                                    <th>Payment Date</th>
+                                                    <th>Payment Status</th>
+                                                    <th>Payment Type</th>
+                                                    <th>Card No.</th>
+                                                    <th>Invoice ID</th>
+                                                </tr>
+                                                </thead>
+            
+            
+                                                
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div> <!-- end row -->
+
+                        </div>
+                        <!-- end container-fluid -->
+                    </div> 
+                    <!-- end page-content-wrapper -->
+                </div>
+                <!-- End Page-content -->
+
+                
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+
+        <!-- JAVASCRIPT -->
+        <script src="../static/js/jquery.min.js"></script>
+        <script src="../static/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/js/metisMenu.min.js"></script>
+        <script src="../static/js/simplebar.min.js"></script>
+        <script src="../static/js/waves.min.js"></script>
+        <script src="../static/js/bundle.js"></script>
+
+
+        <!-- Datatable init js -->
+        <script src="../static/js/datatables.init.js"></script>
+        
+
+        
+        <!-- Required datatable js -->
+        <script src="../static/js/jquery.dataTables.min.js"></script>
+        <script src="../static/js/dataTables.bootstrap4.min.js"></script>
+        <!-- Buttons examples -->
+        <script src="../static/js/dataTables.buttons.min.js"></script>
+        <script src="../static/js/buttons.bootstrap4.min.js"></script>
+        <script src="../static/js/jszip.min.js"></script>
+        <script src="https://themesdesign.in/xoric/layouts/blue/vertical/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+        <script src="https://themesdesign.in/xoric/layouts/blue/vertical/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+        <script src="../static/js/buttons.html5.min.js"></script>
+        <script src="../static/js/buttons.print.min.js"></script>
+        <script src="../static/js/buttons.colVis.min.js"></script>
+        <!-- Responsive examples -->
+        <script src="../static/js/dataTables.responsive.min.js"></script>
+        <script src="../static/js/responsive.bootstrap4.min.js"></script>
+
+
+        <script src="../static/js/app.js"></script>
+        <script src="../static/js/waves.min.js"></script>
+
+        
+
+
+        <script>  
+        $(document).ready(function() {
+                var paymentDataTable = $('#paymentTable').DataTable({
+                            dom: 'Bfrtip',
+                            // 'processing': true,
+                            'serverSide': true,
+                            'serverMethod': 'post',
+                            'ajax': {
+                                'url':'/payment_ajax'
+                            },
+                            'lengthMenu': [[10, 25, 50, 100], [10, 25, 50, 100]],
+                            buttons:["pageLength","colvis"],
+                            searching: true,
+                            sort: true,
+                            "serverSide": true,
+                            'columns': [
+                                { name: 'payment_id', data: 'payment_id', "orderable": true },
+                                { name: 'payment_date', data: 'payment_date', "orderable": true },
+                                { name: 'payment_status', data: 'payment_status', "orderable": false },
+                                { name: 'payment_type', data: 'payment_type', "orderable": true },
+                                { name: 'card_no', data: 'card_no', "orderable": true },
+                                { name: 'invoice_id', data: 'invoice_id', "orderable": true },
+                            ]
+                        });
+                
+                    
+            });
+        </script>
+
+        <script src="../static/js/app.js"></script>
+
+
+
+    </body>
+</html>
